@@ -1,0 +1,275 @@
+[
+  {
+    "id": 1,
+    "imagen_src": "img1",
+    "descripcion": "Cabaña rústica con vista al lago",
+    "direccion": "Camino al Lago 123, Ancud",
+    "ciudad": "Ancud",
+    "tipo": "Cabaña",
+    "tipo_operacion": "Arriendo",
+    "precio": 120000,
+    "estado": "Disponible",
+    "features": {
+      "habitaciones": {
+        "principal": 1,
+        "secundaria": 2
+      },
+      "estacionamientos": 1,
+      "dormitorios": 1,
+      "banos": 2,
+      "metros_cuadrados": 80
+    }
+  },
+  {
+    "id": 2,
+    "imagen_src": "img2",
+    "descripcion": "Cabaña moderna cerca del bosque",
+    "direccion": "Ruta 5 Sur Km 45, Castro",
+    "ciudad": "Castro",
+    "tipo": "Cabaña",
+    "tipo_operacion": "Arriendo",
+    "precio": 150000,
+    "estado": "Disponible",
+    "features": {
+      "habitaciones": {
+        "principal": 1,
+        "secundaria": 2
+      },
+      "estacionamientos": 2,
+      "dormitorios": 2,
+      "banos": 2,
+      "metros_cuadrados": 100
+    }
+  },
+  {
+    "id": 3,
+    "imagen_src": "img3",
+    "descripcion": "Cabaña familiar con parrilla",
+    "direccion": "Sector Playa Grande, Quellón",
+    "ciudad": "Quellón",
+    "tipo": "Cabaña",
+    "tipo_operacion": "Arriendo",
+    "precio": 180000,
+    "estado": "Disponible",
+    "features": {
+      "habitaciones": {
+        "principal": 1,
+        "secundaria": 2
+      },
+      "estacionamientos": 2,
+      "dormitorios": 3,
+      "banos": 3,
+      "metros_cuadrados": 120
+    }
+  },
+  {
+    "id": 4,
+    "imagen_src": "img4",
+    "descripcion": "Casa amplia con jardín",
+    "direccion": "Los Alerces 456, Ancud",
+    "ciudad": "Ancud",
+    "tipo": "Casa",
+    "tipo_operacion": "Venta",
+    "precio": 85000000,
+    "estado": "Disponible",
+    "features": {
+      "habitaciones": {
+        "principal": 1,
+        "secundaria": 3
+      },
+      "estacionamientos": 2,
+      "dormitorios": 4,
+      "banos": 3,
+      "metros_cuadrados": 150
+    }
+  },
+  {
+    "id": 5,
+    "imagen_src": "img5",
+    "descripcion": "Parcela con vista panorámica",
+    "direccion": "Camino Rural S/N, Dalcahue",
+    "ciudad": "Dalcahue",
+    "tipo": "Parcela",
+    "tipo_operacion": "Venta",
+    "precio": 45000000,
+    "estado": "Disponible",
+    "features": {
+      "habitaciones": {
+        "principal": 0,
+        "secundaria": 0
+      },
+      "estacionamientos": 0,
+      "dormitorios": 0,
+      "banos": 0,
+      "metros_cuadrados": 5000
+    }
+  },
+  {
+    "id": 6,
+    "imagen_src": "img1",
+    "descripcion": "Departamento céntrico amoblado",
+    "direccion": "Av. Arturo Prat 890, Castro",
+    "ciudad": "Castro",
+    "tipo": "Departamento",
+    "tipo_operacion": "Arriendo",
+    "precio": 350000,
+    "estado": "Disponible",
+    "features": {
+      "habitaciones": {
+        "principal": 1,
+        "secundaria": 1
+      },
+      "estacionamientos": 1,
+      "dormitorios": 2,
+      "banos": 1,
+      "metros_cuadrados": 65
+    }
+  },
+  {
+    "id": 7,
+    "imagen_src": "img2",
+    "descripcion": "Casa tradicional chilota",
+    "direccion": "Calle Gamboa 234, Dalcahue",
+    "ciudad": "Dalcahue",
+    "tipo": "Casa",
+    "tipo_operacion": "Venta",
+    "precio": 95000000,
+    "estado": "Disponible",
+    "features": {
+      "habitaciones": {
+        "principal": 1,
+        "secundaria": 4
+      },
+      "estacionamientos": 2,
+      "dormitorios": 5,
+      "banos": 3,
+      "metros_cuadrados": 180
+    }
+  },
+  {
+    "id": 8,
+    "imagen_src": "img3",
+    "descripcion": "Cabaña de montaña con chimenea",
+    "direccion": "Sector Chepu Km 12, Ancud",
+    "ciudad": "Ancud",
+    "tipo": "Cabaña",
+    "tipo_operacion": "Arriendo",
+    "precio": 200000,
+    "estado": "Disponible",
+    "features": {
+      "habitaciones": {
+        "principal": 1,
+        "secundaria": 3
+      },
+      "estacionamientos": 2,
+      "dormitorios": 4,
+      "banos": 2,
+      "metros_cuadrados": 140
+    }
+  },
+  {
+    "id": 9,
+    "imagen_src": "img4",
+    "descripcion": "Terreno comercial céntrico",
+    "direccion": "Calle Blanco Encalada 567, Castro",
+    "ciudad": "Castro",
+    "tipo": "Terreno",
+    "tipo_operacion": "Venta",
+    "precio": 120000000,
+    "estado": "Disponible",
+    "features": {
+      "habitaciones": {
+        "principal": 0,
+        "secundaria": 0
+      },
+      "estacionamientos": 0,
+      "dormitorios": 0,
+      "banos": 0,
+      "metros_cuadrados": 800
+    }
+  },
+  {
+    "id": 10,
+    "imagen_src": "img5",
+    "descripcion": "Departamento con vista al mar",
+    "direccion": "Costanera Norte 1200, Ancud",
+    "ciudad": "Ancud",
+    "tipo": "Departamento",
+    "tipo_operacion": "Venta",
+    "precio": 75000000,
+    "estado": "Disponible",
+    "features": {
+      "habitaciones": {
+        "principal": 1,
+        "secundaria": 2
+      },
+      "estacionamientos": 1,
+      "dormitorios": 3,
+      "banos": 2,
+      "metros_cuadrados": 95
+    }
+  },
+  {
+    "id": 11,
+    "imagen_src": "img1",
+    "descripcion": "Parcela agrícola con riego",
+    "direccion": "Camino a Tenaún Km 8, Dalcahue",
+    "ciudad": "Dalcahue",
+    "tipo": "Parcela",
+    "tipo_operacion": "Venta",
+    "precio": 65000000,
+    "estado": "Disponible",
+    "features": {
+      "habitaciones": {
+        "principal": 0,
+        "secundaria": 0
+      },
+      "estacionamientos": 0,
+      "dormitorios": 0,
+      "banos": 0,
+      "metros_cuadrados": 10000
+    }
+  },
+  {
+    "id": 12,
+    "imagen_src": "img2",
+    "descripcion": "Casa frente a la playa",
+    "direccion": "Playa Mar Brava S/N, Quellón",
+    "ciudad": "Quellón",
+    "tipo": "Casa",
+    "tipo_operacion": "Venta",
+    "precio": 140000000,
+    "estado": "Disponible",
+    "features": {
+      "habitaciones": {
+        "principal": 1,
+        "secundaria": 5
+      },
+      "estacionamientos": 3,
+      "dormitorios": 6,
+      "banos": 4,
+      "metros_cuadrados": 250
+    }
+  },
+  {
+    "id": 13,
+    "imagen_src": "img3",
+    "descripcion": "Local comercial equipado",
+    "direccion": "Av. Salvador Allende 345, Castro",
+    "ciudad": "Castro",
+    "tipo": "Local Comercial",
+    "tipo_operacion": "Arriendo",
+    "precio": 800000,
+    "estado": "Disponible",
+    "features": {
+      "habitaciones": {
+        "principal": 0,
+        "secundaria": 0
+      },
+      "estacionamientos": 2,
+      "dormitorios": 0,
+      "banos": 2,
+      "metros_cuadrados": 120
+    }
+  }
+]

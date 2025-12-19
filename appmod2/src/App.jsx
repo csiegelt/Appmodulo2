@@ -1,92 +1,97 @@
 import { useState } from 'react'
-import { Card, NavMenu } from './components/index.ts'
+import { Card, Filter, NavMenu } from './components/index.ts'
 import './App.css'
 import './components/Nav/navmenu.css'
+import propiedadesData from './data/propiedades.json'
 
+import img1 from './assets/img/IMG-20240107-WA0047.jpg';
+import img2 from './assets/img/IMG-20240107-WA0060.jpg';
+import img3 from './assets/img/IMG-20240107-WA0063.jpg';
 
+const imageMap = {
+  img1,
+  img2,
+  img3,
+  img4: img3,
+  img5: img3
+};
 
-import img1 from './img/IMG-20240107-WA0047.jpg';
-import img2 from './img/IMG-20240107-WA0060.jpg';
-import img3 from './img/IMG-20240107-WA0063.jpg';
-import img4 from './img/IMG-20240107-WA0063.jpg';
-import img5 from './img/IMG-20240107-WA0063.jpg';
-
-
-
-
-export const cabanas = [
-  {
-    imagen_src: img1,
-    descripcion: "Cabaña rústica con vista al lago",
-    valor: 120,
-    features: { habitaciones: { principal:1, secundaria:2 }, estacionamientos: 1, dormitorios: 1 }
-  },
-  {
-    imagen_src: img2,
-    descripcion: "Cabaña moderna cerca del bosque",
-    valor: 150,
-    features: { habitaciones: { principal:1, secundaria:2 }, estacionamientos: 2, dormitorios: 2 }
-  },
-  {
-    imagen_src: img3,
-    descripcion: "Cabaña familiar con parrilla",
-    valor: 180,
-    features: { habitaciones: { principal:1, secundaria:2 }, estacionamientos: 2, dormitorios: 3 }
-  },
-  {
-    imagen_src: img4,
-    descripcion: "Cabaña familiar con parrilla",
-    valor: 180,
-    features: { habitaciones: { principal:1, secundaria:2 }, estacionamientos: 2, dormitorios: 3 }
-  },
-  {
-    imagen_src: img5,
-    descripcion: "Cabaña familiar con parrilla",
-    valor: 180,
-    features: { habitaciones: { principal:1, secundaria:2 }, estacionamientos: 2, dormitorios: 3 }
-  },
-  
-];
+const propiedadesConImagenes = propiedadesData.map(prop => ({
+  ...prop,
+  imagen_src: imageMap[prop.imagen_src] || img1
+}));
 
 function App() {
+  const [propiedades, setPropiedadesState] = useState(propiedadesConImagenes);
+
+  const aplicarFiltros = (filtros) => {
+    let resultado = [...propiedadesConImagenes];
+
+    if (filtros.busqueda && filtros.busqueda.trim() !== '') {
+      const busqueda = filtros.busqueda.toLowerCase();
+      resultado = resultado.filter(prop =>
+        prop.descripcion.toLowerCase().includes(busqueda) ||
+        prop.ciudad.toLowerCase().includes(busqueda) ||
+        prop.direccion.toLowerCase().includes(busqueda) ||
+        prop.tipo.toLowerCase().includes(busqueda)
+      );
+    }
+
+    if (filtros.ciudad && filtros.ciudad !== 'todas') {
+      resultado = resultado.filter(prop => prop.ciudad === filtros.ciudad);
+    }
+
+    if (filtros.tipo && filtros.tipo !== 'todos') {
+      resultado = resultado.filter(prop => prop.tipo === filtros.tipo);
+    }
+
+    setPropiedadesState(resultado);
+  };
   
   return (
     <>
-      
       <div className="contenedor-app">
-          
-          <NavMenu />
+        <NavMenu />        
+        <div className="app-header">
+        <Filter        
+        texto="Buscar por descripción, ciudad o dirección..." 
+          propiedades={propiedadesConImagenes}
+          onFiltrar={aplicarFiltros}    
+        />
+        </div>
         
-          <div className="grid">          
-              {cabanas.map((cab, i) => (
-                <Card
-                  key={i}
-                  src={cab.imagen_src}
-                  descripcion={cab.descripcion}
-                  valor={cab.valor}
-                  habitaciones={cab.features.habitaciones.principal + cab.features.habitaciones.secundaria || cab.features.habitaciones}
-                  habitacion_principal={cab.features.habitaciones.principal}
-                  habitacion_secundaria={cab.features.habitaciones.secundaria}
-                  estacionamientos={cab.features.estacionamientos}
-                  dormitorios={cab.features.dormitorios}
-                >
-                  <div>Habitaciones: {cab.features.habitaciones.principal + cab.features.habitaciones.secundaria || cab.features.habitaciones}</div>
-
-                  
-
-                  <div>Estacionamientos: {cab.features.estacionamientos}</div>
-                  <div>Dormitorios: {cab.features.dormitorios}</div>
-                </Card>
-              ))}
-            </div>
-          <p>
+        <div className="grid">          
+          {propiedades.map((prop) => {
+            const totalHabitaciones = prop.features.habitaciones.principal + prop.features.habitaciones.secundaria;
+            
+            return (
+              <Card
+                key={prop.id}
+                src={prop.imagen_src}
+                descripcion={prop.descripcion}
+                valor={prop.precio}
+                habitaciones={totalHabitaciones}
+                estacionamientos={prop.features.estacionamientos}
+                dormitorios={prop.features.dormitorios}
+              >
+                <div>Ciudad: {prop.ciudad}</div>
+                <div>Tipo: {prop.tipo}</div>
+                <div>Operación: {prop.tipo_operacion}</div>
+                <div>Habitaciones: {totalHabitaciones}</div>
+                <div>Estacionamientos: {prop.features.estacionamientos}</div>
+                <div>Dormitorios: {prop.features.dormitorios}</div>
+              </Card>
+            );
+          })}
+        </div>
+        
+        <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
-      
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-
+        
+        <p className="read-the-docs">
+          Click on the Vite and React logos to learn more
+        </p>
       </div>
     </>
   )

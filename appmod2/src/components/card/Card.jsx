@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ImagenLabel } from '../ImagenLabel/ImagenLabel.jsx';
 import { MessageModal } from '../messagemodal/MessageModal.jsx';
+import './card.css';
 
 
 
@@ -12,8 +13,7 @@ export default function Card({
   habitacion_principal,
   habitacion_secundaria,
   estacionamientos,
-  dormitorios,
-  children
+  dormitorios  
 
 }) {
 
@@ -43,11 +43,11 @@ export default function Card({
                         <ImagenLabel texto={descripcion} />
                       </div>
 
-                      <h5>{descripcion}</h5>
+                      <h5>{/*descripcion*/}</h5>
                       <p>Valor: ${valor}</p>
 
                       {/* renderiza los children (features u otros) */}
-                      {children}
+                     
 
                       <button
                         onClick={(e) => {
@@ -61,14 +61,9 @@ export default function Card({
 
                     {/* CARA TRASERA */}
                     <div className="card card-back">
-                      <div className="imagen_contenedor">
-                        <img
-                          src={src || '/img/placeholder.png'}
-                          alt={descripcion || 'imagen'}
-                          className="card-image"
-                        />
-                        <ImagenLabel texto="Detalles completos" />
-                      </div>
+                      
+                        <ImagenLabel texto="Información Detallada" />
+                      
 
                       <h5>Información detallada</h5>
                       <div className="features-list">

@@ -13,6 +13,9 @@ export { MessageModal };
 import { NavMenu } from './Nav/NavMenu.jsx';
 export { NavMenu };
 
+import { Filter } from './filter/Filter.jsx';
+export { Filter };
+
 
 
 
