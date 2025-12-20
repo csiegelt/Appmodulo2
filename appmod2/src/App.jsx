@@ -70,6 +70,11 @@ function App() {
                 src={prop.imagen_src}
                 descripcion={prop.descripcion}
                 valor={prop.precio}
+                tipo={prop.tipo}
+                ciudad={prop.ciudad}
+                habitacion_principal={prop.features.habitaciones.principal}
+                habitacion_secundaria={prop.features.habitaciones.secundaria}
+                tipo_operacion={prop.tipo_operacion}
                 habitaciones={totalHabitaciones}
                 estacionamientos={prop.features.estacionamientos}
                 dormitorios={prop.features.dormitorios}

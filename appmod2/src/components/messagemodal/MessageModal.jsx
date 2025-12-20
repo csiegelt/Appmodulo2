@@ -1,4 +1,5 @@
 import React from "react";
+import './messagemodal.css';
 
 export function MessageModal({ message, onClose }) {
   return (

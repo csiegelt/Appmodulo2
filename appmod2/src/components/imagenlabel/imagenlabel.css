@@ -1,0 +1,82 @@
+.imagen-labels-container {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  z-index: 10;
+  flex-wrap: wrap;
+}
+
+/* Label de estado (Disponible/Arrendado/Vendido) */
+.imagen-label {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 18px;
+  font-size: 10px;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(10px);
+}
+
+/* Label de tipo */
+.imagen-label-tipo {
+  padding: 6px 12px;
+  border-radius: 18px;
+  
+  
+  font-size: 12px;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  color: white;
+  z-index: 20;
+}
+
+/* Colores por tipo de propiedad */
+.tipo-casa {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+}
+
+.tipo-cabana {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+}
+
+.tipo-parcela {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.tipo-departamento {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+}
+
+.tipo-terreno {
+  background: linear-gradient(135deg, #84cc16 0%, #65a30d 100%);
+}
+
+.tipo-local {
+  background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+}
+
+.tipo-default {
+  background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .imagen-labels-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .imagen-label,
+  .imagen-label-tipo {
+    font-size: 11px;
+    padding: 5px 10px;
+  }
+}

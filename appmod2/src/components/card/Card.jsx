@@ -9,10 +9,13 @@ export default function Card({
   src,
   descripcion,
   valor,
+  ciudad,
   habitaciones,
+  tipo_operacion,
   habitacion_principal,
   habitacion_secundaria,
   estacionamientos,
+  tipo,
   dormitorios  
 
 }) {
@@ -40,14 +43,15 @@ export default function Card({
                           alt={descripcion || 'imagen'}
                           className="card-image"
                         />
-                        <ImagenLabel texto={descripcion} />
+                        <ImagenLabel texto={descripcion} tipo={tipo} />
                       </div>
-
-                      <h5>{/*descripcion*/}</h5>
-                      <p>Valor: ${valor}</p>
-
-                      {/* renderiza los children (features u otros) */}
-                     
+                      <div className="features-list-front"> 
+                        <h4>{descripcion}</h4>
+                        <p><strong>Valor:</strong> $ {valor.toLocaleString('es-CL')}</p>
+                        <p><strong>Ciudad:</strong> {ciudad}</p>
+                        <p><strong>Tipo operación:</strong> {tipo_operacion}</p>
+                                       
+                      </div>
 
                       <button
                         onClick={(e) => {
@@ -62,13 +66,11 @@ export default function Card({
                     {/* CARA TRASERA */}
                     <div className="card card-back">
                       
-                        <ImagenLabel texto="Información Detallada" />
-                      
-
-                      <h5>Información detallada</h5>
+                      <ImagenLabel texto="Información Detallada" />
+                                            
                       <div className="features-list">
                         <p><strong>Descripción:</strong> {descripcion}</p>
-                        <p><strong>Valor:</strong> ${valor}</p>
+                        <p><strong>Valor:</strong> ${valor.toLocaleString('es-CL')}</p>
                         <p><strong>Habitaciones:</strong> {habitaciones ?? '-'}</p>
                         <p><strong>Habitación Principal:</strong> {habitacion_principal ?? '-'}</p>
                         <p><strong>Habitación Secundaria:</strong> {habitacion_secundaria ?? '-'}</p>

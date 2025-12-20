@@ -51,8 +51,20 @@
   z-index: 1;
 }
 
+.features-list-front {
+  display: flex;
+    margin-top: 1px ;
+    top: 50px;
+    
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: left;
+  width: 100%;
+  flex: 1;
+}
 .features-list {
   display: flex;
+  margin-top: 30px;  
   flex-direction: column;
   gap: 0.5rem;
   text-align: left;
@@ -62,15 +74,18 @@
 
 .features-list p {
   margin: 0;
+  top: 100px;
   font-size: 0.85rem;
   line-height: 1.4;
 }
 
-.card h5 {
+.card h4 {
   margin: 0.25rem 0;
   font-size: 1rem;
-  color: #fff;
+  color: #000000;
 }
+
+
 
 .card p {
   margin: 0.25rem 0;
