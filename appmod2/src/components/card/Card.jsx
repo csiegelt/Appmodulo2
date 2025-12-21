@@ -79,7 +79,7 @@ export default function Card({
 
               <ButtonCard
                 text="Ver más"
-                variant="primary"
+                variant="primario"
                 onClick={(e) => {
                   e.stopPropagation();
                   setShowModal(true);
@@ -98,8 +98,8 @@ export default function Card({
                 <p><strong>Valor:</strong> ${valor.toLocaleString('es-CL')}</p>
                 <p><strong>Habitaciones:</strong> {habitaciones ?? '-'}</p>
                 <ul>                          
-                <li>Habitación Principal:{habitacion_principal ?? '-'}</li>
-                <li>Habitación Secundaria: {habitacion_secundaria ?? '-'}</li>
+                  <li>Habitación Principal: {habitacion_principal ?? '-'}</li>
+                  <li>Habitación Secundaria: {habitacion_secundaria ?? '-'}</li>
                 </ul>
                 <p><strong>Estacionamientos:</strong> {estacionamientos ?? '-'}</p>
                 <p><strong>Dormitorios:</strong> {dormitorios ?? '-'}</p>
@@ -107,7 +107,7 @@ export default function Card({
 
               <ButtonCard
                 text="Volver"
-                variant="secondary"
+                variant="secundario"
                 onClick={(e) => {
                   e.stopPropagation();
                   setFlipped(false);

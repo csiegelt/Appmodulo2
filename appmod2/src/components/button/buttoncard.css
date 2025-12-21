@@ -11,37 +11,37 @@
 }
 
 /* Variante primaria - Para la parte frontal (Ver más) */
-.button-card--primary {
+.button-card--primario {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
 }
 
-.button-card--primary:hover {
+.button-card--primario:hover {
   background: linear-gradient(135deg, #839de2 0%, #667eea 100%);
   box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
   transform: translateY(-2px);
 }
 
-.button-card--primary:active {
+.button-card--primario:active {
   transform: translateY(0);
   box-shadow: 0 2px 10px rgba(102, 126, 234, 0.3);
 }
 
 /* Variante secundaria - Para la parte trasera (Volver) */
-.button-card--secondary {
+.button-card--secundario {
   background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
   color: white;
   box-shadow: 0 4px 15px rgba(245, 87, 108, 0.3);
 }
 
-.button-card--secondary:hover {
+.button-card--secundario:hover {
   background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%);
   box-shadow: 0 6px 20px rgba(245, 87, 108, 0.4);
   transform: translateY(-2px);
 }
 
-.button-card--secondary:active {
+.button-card--secundario:active {
   transform: translateY(0);
   box-shadow: 0 2px 10px rgba(245, 87, 108, 0.3);
 }
