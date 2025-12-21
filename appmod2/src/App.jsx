@@ -7,21 +7,37 @@ import propiedadesData from './data/propiedades.json'
 import img1 from './assets/img/IMG-20240107-WA0047.jpg';
 import img2 from './assets/img/IMG-20240107-WA0060.jpg';
 import img3 from './assets/img/IMG-20240107-WA0063.jpg';
+import img4 from './assets/img/IMG-20240107-WA0063.jpg';
+import img5 from './assets/img/IMG-20240107-WA0060.jpg';
 
 const imageMap = {
   img1,
   img2,
   img3,
-  img4: img3,
-  img5: img3
+  img4,
+  img5
 };
 
-const propiedadesConImagenes = propiedadesData.map(prop => ({
-  ...prop,
-  imagen_src: imageMap[prop.imagen_src] || img1
-}));
 
 function App() {
+
+  const propiedadesConImagenes = propiedadesData.map(prop => {
+    // Mapea array nombres a imágenes reales
+    const imagenesArray = prop.imagenes 
+      ? prop.imagenes.map(imgKey => imageMap[imgKey] || img1)
+      : [imageMap[prop.imagen_src] || img1];
+
+   
+      // <--CONSOLE MAPEO IMAGENE-->
+      // console.log(`Propiedad ${prop.id} - imagenes:`, imagenesArray);
+
+    return {
+      ...prop,
+      imagen_src: imageMap[prop.imagen_src] || img1,
+      images: imagenesArray // ← IMPORTANTE
+    };
+  });
+
   const [propiedades, setPropiedadesState] = useState(propiedadesConImagenes);
 
   const aplicarFiltros = (filtros) => {
@@ -56,7 +72,8 @@ function App() {
         <Filter        
         texto="Buscar por descripción, ciudad o dirección..." 
           propiedades={propiedadesConImagenes}
-          onFiltrar={aplicarFiltros}    
+          onFiltrar={aplicarFiltros}
+             
         />
         </div>
         
@@ -69,8 +86,10 @@ function App() {
                 key={prop.id}
                 src={prop.imagen_src}
                 descripcion={prop.descripcion}
+                direccion={prop.direccion}
                 valor={prop.precio}
                 tipo={prop.tipo}
+                images={prop.images}
                 ciudad={prop.ciudad}
                 habitacion_principal={prop.features.habitaciones.principal}
                 habitacion_secundaria={prop.features.habitaciones.secundaria}
@@ -78,14 +97,8 @@ function App() {
                 habitaciones={totalHabitaciones}
                 estacionamientos={prop.features.estacionamientos}
                 dormitorios={prop.features.dormitorios}
-              >
-                <div>Ciudad: {prop.ciudad}</div>
-                <div>Tipo: {prop.tipo}</div>
-                <div>Operación: {prop.tipo_operacion}</div>
-                <div>Habitaciones: {totalHabitaciones}</div>
-                <div>Estacionamientos: {prop.features.estacionamientos}</div>
-                <div>Dormitorios: {prop.features.dormitorios}</div>
-              </Card>
+              ></Card>         
+              
             );
           })}
         </div>

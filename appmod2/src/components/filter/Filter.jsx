@@ -4,13 +4,16 @@ import './filter.css';
 export function Filter({
      texto,
      propiedades = [], // Recibe las propiedades para extraer valores únicos
-     onFiltrar    
+     onFiltrar
+     
 }) {
   const [filtros, setFiltros] = useState({
     busqueda: '',
     ciudad: 'todas',
-    tipo: 'todos'
+    tipo: 'todos',       
+
   });
+
 
   // Extrae unica ciudad
   const ciudadesDisponibles = [...new Set(propiedades.map(prop => prop.ciudad))].sort();

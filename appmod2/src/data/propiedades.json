@@ -2,6 +2,7 @@
   {
     "id": 1,
     "imagen_src": "img1",
+    "imagenes": ["img1", "img2", "img3"],
     "descripcion": "Cabaña rústica con vista al lago",
     "direccion": "Camino al Lago 123, Ancud",
     "ciudad": "Ancud",
@@ -23,6 +24,7 @@
   {
     "id": 2,
     "imagen_src": "img2",
+    "imagenes": ["img2", "img3", "img1"],
     "descripcion": "Cabaña moderna cerca del bosque",
     "direccion": "Ruta 5 Sur Km 45, Castro",
     "ciudad": "Castro",
@@ -44,6 +46,7 @@
   {
     "id": 3,
     "imagen_src": "img3",
+    "imagenes": ["img3", "img1", "img2"],
     "descripcion": "Cabaña familiar con parrilla",
     "direccion": "Sector Playa Grande, Quellón",
     "ciudad": "Quellón",
@@ -65,6 +68,7 @@
   {
     "id": 4,
     "imagen_src": "img4",
+    "imagenes": ["img4", "img5", "img1"],
     "descripcion": "Casa amplia con jardín",
     "direccion": "Los Alerces 456, Ancud",
     "ciudad": "Ancud",
@@ -86,6 +90,7 @@
   {
     "id": 5,
     "imagen_src": "img5",
+    "imagenes": ["img5", "img4", "img3"],
     "descripcion": "Parcela con vista panorámica",
     "direccion": "Camino Rural S/N, Dalcahue",
     "ciudad": "Dalcahue",
@@ -107,6 +112,7 @@
   {
     "id": 6,
     "imagen_src": "img1",
+    "imagenes": ["img1", "img4", "img5"],
     "descripcion": "Departamento céntrico amoblado",
     "direccion": "Av. Arturo Prat 890, Castro",
     "ciudad": "Castro",
@@ -128,6 +134,7 @@
   {
     "id": 7,
     "imagen_src": "img2",
+    "imagenes": ["img2", "img1", "img3"],
     "descripcion": "Casa tradicional chilota",
     "direccion": "Calle Gamboa 234, Dalcahue",
     "ciudad": "Dalcahue",
@@ -149,6 +156,7 @@
   {
     "id": 8,
     "imagen_src": "img3",
+    "imagenes": ["img3", "img2", "img4"],
     "descripcion": "Cabaña de montaña con chimenea",
     "direccion": "Sector Chepu Km 12, Ancud",
     "ciudad": "Ancud",
@@ -170,6 +178,7 @@
   {
     "id": 9,
     "imagen_src": "img4",
+    "imagenes": ["img4", "img3", "img5"],
     "descripcion": "Terreno comercial céntrico",
     "direccion": "Calle Blanco Encalada 567, Castro",
     "ciudad": "Castro",
@@ -191,6 +200,7 @@
   {
     "id": 10,
     "imagen_src": "img5",
+    "imagenes": ["img5", "img1", "img2"],
     "descripcion": "Departamento con vista al mar",
     "direccion": "Costanera Norte 1200, Ancud",
     "ciudad": "Ancud",
@@ -212,6 +222,7 @@
   {
     "id": 11,
     "imagen_src": "img1",
+    "imagenes": ["img1", "img5", "img4"],
     "descripcion": "Parcela agrícola con riego",
     "direccion": "Camino a Tenaún Km 8, Dalcahue",
     "ciudad": "Dalcahue",
@@ -233,6 +244,7 @@
   {
     "id": 12,
     "imagen_src": "img2",
+    "imagenes": ["img2", "img5", "img3"],
     "descripcion": "Casa frente a la playa",
     "direccion": "Playa Mar Brava S/N, Quellón",
     "ciudad": "Quellón",
@@ -254,6 +266,7 @@
   {
     "id": 13,
     "imagen_src": "img3",
+    "imagenes": ["img3", "img4", "img2"],
     "descripcion": "Local comercial equipado",
     "direccion": "Av. Salvador Allende 345, Castro",
     "ciudad": "Castro",

@@ -78,7 +78,7 @@
 /* Mobile - Menú hamburguesa */
 @media (max-width: 700px) {
   .nav-container {
-    padding: 1rem;
+    padding: rem;
   }
 
   .nav-toggle {
@@ -87,8 +87,9 @@
   }
 
   .nav-links {
+    display: flex;
     position: fixed;
-    top: 70px;
+    top: 100px;
     left: 0;
     right: 0;
     flex-direction: column;
@@ -98,8 +99,9 @@
     padding: 2rem;
     
     gap: 1rem;
-    transform: translateX(-100%);
-    transition: transform 0.3s ease-in;
+    transform:  translateX(-200%);
+    
+    transition: transform 0.3s ease-out;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   }
 
