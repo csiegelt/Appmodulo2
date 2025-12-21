@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 export function NavMenu() {
 
@@ -16,9 +17,9 @@ export function NavMenu() {
   return (
     <nav className="nav-menu">
       <div className="nav-container">
-        <a href="/" className="nav-logo">
+        <Link to="/" className="nav-logo">
           Propiedades
-        </a>
+        </Link>
 
         <button
           className="nav-toggle"
@@ -30,24 +31,24 @@ export function NavMenu() {
 
         <ul className={`nav-links ${isOpen ? "active" : ""}`}>
           <li>
-            <a href="#inicio" onClick={closeMenu}>
+            <Link to="/" onClick={closeMenu}>
               Inicio
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#cabanas" onClick={closeMenu}>
-              Cabañas
-            </a>
+            <Link to="/properties" onClick={closeMenu}>
+              Propiedades
+            </Link>
           </li>
           <li>
-            <a href="#servicios" onClick={closeMenu}>
+            <Link to="/servicios" onClick={closeMenu}>
               Servicios
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#contacto" onClick={closeMenu}>
+            <Link to="/contacto" onClick={closeMenu}>
               Contacto
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

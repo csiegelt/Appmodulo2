@@ -8,7 +8,7 @@ export function ButtonCard({
   variant = 'primario',
   className = ''
 }) {
-  console.log('ButtonCard - variant:', variant);
+  // console.log('ButtonCard - variant:', variant);
   const buttonClass = `button-card button-card--${variant} ${className}`.trim();
 
   return (
