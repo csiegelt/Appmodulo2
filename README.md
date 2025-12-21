@@ -1,6 +1,6 @@
 # 🏡 AppModulo2 - Portal Inmobiliario Chiloé
 
-## 📋 Descripción
+## Descripción
 
 Portal inmobiliario enfocado en propiedades de la Isla de Chiloé, Chile. Plataforma que permite visualizar, filtrar y navegar entre diferentes tipos de propiedades (casas, cabañas, parcelas, departamentos y locales comerciales) disponibles para venta o arriendo en las comunas de Ancud, Castro, Quellón y Dalcahue.
 
@@ -8,45 +8,54 @@ El proyecto incluye un sistema de filtrado dinámico, paginación y visualizaci�
 
 ---
 
-## 🧩 Componentes Creados
+## Componentes Creados
 
 ### 1. **Card** (`src/components/card/Card.jsx`)
-- Tarjeta de propiedad con información principal
-- Imagen de la propiedad
-- Descripción, precio y características
-- Modal con información detallada
-- Efecto flip en hover
-- Etiquetas de estado (Disponible/Arrendado/Vendido)
+- Tarjeta 3D con efecto flip al hacer clic
+- Vista frontal: imagen, descripción, precio y características básicas
+- Vista trasera: información detallada de la propiedad
+- Integración con modal para galería de imágenes
+- Etiquetas de estado dinámicas
+- Diseño responsive adaptativo
 
-### 2. **Filter** (`src/components/filter/Filter.jsx`)
+### 2. **ButtonCard** (`src/components/button/ButtonCard.jsx`)
+- Componente de botón reutilizable para las cards
+- Variante `primary`: botón "Ver más" para abrir modal (gradiente morado)
+- Variante `secondary`: botón "Volver" para regresar a vista frontal (gradiente rosa)
+- Efectos hover y transiciones suaves
+- Estilos personalizados según contexto
+
+### 3. **MessageModal** (`src/components/messagemodal/MessageModal.jsx`)
+- Modal con slider de imágenes
+- Navegación entre múltiples fotos de la propiedad
+- Indicadores de posición en el slider
+- Información completa de la propiedad
+- Botones de navegación responsivos
+- Diseño optimizado para móvil
+
+### 4. **Filter** (`src/components/filter/Filter.jsx`)
 - Input de búsqueda por texto
 - Select dinámico para filtrar por ciudad
 - Select dinámico para filtrar por tipo de propiedad
 - Botón para limpiar filtros
 - Filtros basados en datos del JSON
 
-### 3. **Pagination** (`src/components/pagination/Pagination.jsx`)
-- Navegación entre páginas
-- Botones Anterior/Siguiente
-- Botones numerados para cada página
-- Indicador de items mostrados
-- Scroll suave al cambiar de página
-
-### 4. **NavMenu** (`src/components/Nav/NavMenu.jsx`)
+### 5. **NavMenu** (`src/components/Nav/NavMenu.jsx`)
 - Barra de navegación principal
 - Logo del proyecto
 - Links de navegación
 - Menú hamburguesa responsive
-- Diseño con gradiente azul
 
-### 5. **ImagenLabel** (`src/components/ImagenLabel/ImagenLabel.jsx`)
-- Etiqueta de estado para las tarjetas
-- Estados: Disponible, Arrendado, Vendido
+
+### 6. **ImagenLabel** (`src/components/imagenlabel/ImagenLabel.jsx`)
+- Etiqueta superpuesta en las imágenes
+- Muestra tipo de propiedad y descripción
+- Diseño semitransparente con backdrop-filter
 - Colores dinámicos según estado
 
 ---
 
-## 🚀 Instrucciones para Ejecutar el Proyecto
+## Instrucciones para Ejecutar el Proyecto
 
 ### Prerrequisitos
 - Node.js (v16 o superior)
@@ -75,22 +84,15 @@ npm install
 npm run dev
 ```
 
-5. **Abrir en el navegador**
-```
-http://localhost:5173
-```
-
 ### Build para producción
 
 ```bash
 npm run build
 ```
 
-El proyecto compilado estará en la carpeta `dist/`
-
 ---
 
-## 🛠️ Tecnologías Usadas
+## Tecnologías Usadas
 
 ### Frontend
 - **React** 18.3.1 - Biblioteca para construir interfaces de usuario
@@ -117,7 +119,7 @@ El proyecto compilado estará en la carpeta `dist/`
 
 ---
 
-## 📸 Capturas de Pantalla
+## Capturas de Pantalla
 
 ### Vista Principal
 ![Vista Principal](./screenshots/home.png)
@@ -141,49 +143,67 @@ El proyecto compilado estará en la carpeta `dist/`
 
 ---
 
-## 📁 Estructura del Proyecto
+## Estructura del Proyecto
 
 ```
 appmodulo2/
-├── appmod2/                    # Frontend React
+├── appmod2/                        # Aplicación React
 │   ├── src/
-│   │   ├── assets/            # Imágenes y recursos
-│   │   │   └── img/           # Imágenes de propiedades
-│   │   ├── components/        # Componentes React
-│   │   │   ├── card/          # Componente Card
-│   │   │   ├── filter/        # Componente Filter
-│   │   │   ├── pagination/    # Componente Pagination
-│   │   │   ├── Nav/           # Componente NavMenu
-│   │   │   ├── ImagenLabel/   # Componente ImagenLabel
-│   │   │   └── index.ts       # Exportaciones
-│   │   ├── data/              # Datos mock
-│   │   │   └── propiedades.json
-│   │   ├── App.jsx            # Componente principal
-│   │   ├── App.css            # Estilos principales
-│   │   └── main.jsx           # Punto de entrada
-│   ├── public/                # Recursos públicos
-│   ├── package.json           # Dependencias
-│   └── vite.config.js         # Configuración de Vite
-├── backend/                   # Backend (en desarrollo)
-└── README.md                  # Este archivo
+│   │   ├── assets/                # Recursos estáticos
+│   │   │   ├── img/               # Imágenes de propiedades
+│   │   │   └── mock/              # Archivos mock
+│   │   ├── components/            # Componentes reutilizables
+│   │   │   ├── button/            # ButtonCard component
+│   │   │   │   ├── ButtonCard.jsx
+│   │   │   │   └── buttoncard.css
+│   │   │   ├── card/              # Card 3D component
+│   │   │   │   ├── Card.jsx
+│   │   │   │   └── card.css
+│   │   │   ├── filter/            # Filter component
+│   │   │   │   ├── Filter.jsx
+│   │   │   │   └── filter.css
+│   │   │   ├── imagenlabel/       # ImagenLabel component
+│   │   │   │   ├── ImagenLabel.jsx
+│   │   │   │   └── imagenlabel.css
+│   │   │   ├── messagemodal/      # Modal component
+│   │   │   │   ├── MessageModal.jsx
+│   │   │   │   └── messagemodal.css
+│   │   │   ├── Nav/               # Navigation component
+│   │   │   │   ├── NavMenu.jsx
+│   │   │   │   └── navmenu.css
+│   │   │   └── index.ts           # Barrel exports
+│   │   ├── data/                  # Datos JSON
+│   │   │   └── propiedades.json   # 13 propiedades mock
+│   │   ├── App.jsx                # Componente raíz
+│   │   ├── App.css                # Estilos globales
+│   │   ├── main.jsx               # Entry point
+│   │   └── index.css              # CSS base
+│   ├── public/                    # Archivos públicos estáticos
+│   ├── index.html                 # HTML template
+│   ├── package.json               # Dependencias del proyecto
+│   ├── vite.config.js             # Configuración Vite
+│   └── eslint.config.js           # Configuración ESLint
+└── README.md                      # Documentación del proyecto
 ```
 
 ---
 
-## 🎯 Funcionalidades Principales
+## Funcionalidades Principales
 
-✅ Visualización de propiedades en tarjetas (Cards)  
-✅ Sistema de filtrado por texto, ciudad y tipo  
-✅ Paginación con 6 propiedades por página  
-✅ Modal con información detallada  
-✅ Diseño responsive (mobile, tablet, desktop)  
-✅ Navegación fluida con scroll suave  
-✅ Etiquetas de estado dinámicas  
-✅ Selects dinámicos basados en datos  
+✅ **Tarjetas 3D interactivas** con efecto flip al hacer clic  
+✅ **Sistema de filtrado avanzado** por texto, ciudad y tipo de propiedad  
+✅ **Modal con galería de imágenes** y navegación entre fotos  
+✅ **Botones reutilizables** con variantes primaria/secundaria  
+✅ **Diseño responsivo** optimizado para móvil, tablet y desktop  
+✅ **Navegación fluida** con scroll suave y transiciones  
+✅ **Etiquetas dinámicas** superpuestas en imágenes  
+✅ **Selects dinámicos** generados desde datos  
+✅ **Optimización de imágenes** con object-fit y lazy loading  
+✅ **Efectos visuales modernos** con gradientes y backdrop-filter  
 
 ---
 
-## 📊 Datos del Mock
+## Datos del Mock
 
 El proyecto incluye **13 propiedades** distribuidas en:
 - **Ciudades**: Ancud, Castro, Quellón, Dalcahue
@@ -199,29 +219,21 @@ El proyecto incluye **13 propiedades** distribuidas en:
 
 ---
 
-## 📝 Licencia
+## Próximas Mejoras
 
-Este proyecto fue creado como parte del Módulo 2 - Diplomado Full Stack IPSS.
+- [ ] Integración con API REST
+- [ ] Mapa interactivo de ubicaciones
+- [ ] Filtros avanzados (rango de precio, metros cuadrados, antigüedad)
+- [ ] Sistema de contacto con el vendedor
+- [ ] Tours virtuales 360°
 
----
-
-## 🔜 Próximas Mejoras
-
-- [ ] Integración con backend (Node.js + Express)
-- [ ] Base de datos (PostgreSQL con Prisma)
-- [ ] Sistema de autenticación
-- [ ] Favoritos de usuarios
-- [ ] Mapa de ubicaciones
-- [ ] Filtros avanzados (rango de precio, metros cuadrados)
-- [ ] Ordenamiento (precio, fecha, popularidad)
-- [ ] Comparador de propiedades
 
 ---
 
-## 🤝 Contribuciones
+## Contribuciones
 
 Las contribuciones son bienvenidas. Por favor, abre un issue primero para discutir los cambios que te gustaría realizar.
 
 ---
 
-**⭐ Si te gustó el proyecto, no olvides darle una estrella en GitHub!**
+## Si te gustó el proyecto, no olvides darle una estrella en GitHub!**
