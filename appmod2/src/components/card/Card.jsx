@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ImagenLabel } from '../ImagenLabel/ImagenLabel.jsx';
+import { ImagenLabel } from '../imagenlabel/ImagenLabel.jsx';
 import { MessageModal } from '../messagemodal/MessageModal.jsx';
 import { ButtonCard } from '../button/ButtonCard.jsx';
 import './card.css';
