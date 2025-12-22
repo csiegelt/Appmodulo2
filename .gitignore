@@ -13,6 +13,12 @@ backend/.env
 appmod2/dist/
 appmod2/build/
 
+# Backend directories
+backend/
+server/
+api/
+**/node_modules/
+
 # Logs
 *.log
 npm-debug.log*

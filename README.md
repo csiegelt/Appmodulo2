@@ -133,10 +133,6 @@ npm run build
 ![Modal](./screenshots/modal.png)
 *Detalle completo de la propiedad en modal*
 
-### Paginación
-![Paginación](./screenshots/pagination.png)
-*Sistema de paginación con 6 propiedades por página*
-
 ### Vista Responsive
 ![Mobile](./screenshots/mobile.png)
 *Diseño adaptativo para dispositivos móviles*
@@ -150,8 +146,8 @@ appmodulo2/
 ├── appmod2/                        # Aplicación React
 │   ├── src/
 │   │   ├── assets/                # Recursos estáticos
-│   │   │   ├── img/               # Imágenes de propiedades
-│   │   │   └── mock/              # Archivos mock
+│   │   │   └── img/               # Imágenes de propiedades
+│   │   │   
 │   │   ├── components/            # Componentes reutilizables
 │   │   │   ├── button/            # ButtonCard component
 │   │   │   │   ├── ButtonCard.jsx

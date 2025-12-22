@@ -48,8 +48,14 @@ html {
   
   .grid {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;    
-    margin-top: 1.5rem;
+    gap: 1rem;
+    padding: 0 1rem;
+    margin-top: 1rem;  
+    
+  }
+
+  .filter-input {
+    width: 580px;
   }
 
   .card-3d {
