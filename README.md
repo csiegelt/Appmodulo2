@@ -55,9 +55,6 @@ El proyecto incluye un sistema de filtrado dinámico, paginación y visualizaci�
 
 ### 7. **Footer** (`src/components/Footer/Footer.jsx`)
 - Pie de página informativo y completo
-- Sección "Sobre nosotros" con descripción de la empresa
-- Enlaces rápidos a todas las secciones del sitio
-- Sección de servicios con links directos
 - Información de contacto (dirección, teléfono, email)
 - Iconos SVG de redes sociales (Facebook, Instagram, Twitter)
 - Copyright dinámico con año actual
