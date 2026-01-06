@@ -3,6 +3,7 @@ import { NavMenu } from './components/index.ts'
 import Properties from './pages/properties/properties.jsx'
 import './App.css'
 import './components/Nav/navmenu.css'
+import { Footer } from './components/Footer/Footer.jsx'
 
 function App() {
   return (
@@ -17,8 +18,12 @@ function App() {
           <Route path="/servicios" element={<h1>Servicios</h1>} />
           <Route path="/contacto" element={<h1>Contacto</h1>} />
         </Routes>
+
+        <Footer />
       </div>
     </Router>
+
+    
   )
 }
 
