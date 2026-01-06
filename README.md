@@ -1,4 +1,4 @@
-# 🏡 AppModulo2 - Portal Inmobiliario Chiloé
+# AppModulo2 - Portal Inmobiliario Chiloé
 
 ## Descripción
 
@@ -220,7 +220,7 @@ El proyecto incluye **13 propiedades** distribuidas en:
 
 ---
 
-## 👨‍💻 Autor
+## Autor
 
 **Carlos Siegel**
 - GitHub: [@csiegelt](https://github.com/csiegelt)
