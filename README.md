@@ -53,6 +53,17 @@ El proyecto incluye un sistema de filtrado dinámico, paginación y visualizaci�
 - Diseño semitransparente con backdrop-filter
 - Colores dinámicos según estado
 
+### 7. **Footer** (`src/components/Footer/Footer.jsx`)
+- Pie de página informativo y completo
+- Sección "Sobre nosotros" con descripción de la empresa
+- Enlaces rápidos a todas las secciones del sitio
+- Sección de servicios con links directos
+- Información de contacto (dirección, teléfono, email)
+- Iconos SVG de redes sociales (Facebook, Instagram, Twitter)
+- Copyright dinámico con año actual
+- Diseño responsive con grid layout
+
+
 ---
 
 ## Instrucciones para Ejecutar el Proyecto
@@ -122,19 +133,19 @@ npm run build
 ## Capturas de Pantalla
 
 ### Vista Principal
-![Vista Principal](./screenshots/home.png)
+![Vista Principal](./screenshots/PrincipalCard.jpg)
 *Página principal con tarjetas de propiedades y filtros*
 
 ### Sistema de Filtros
-![Filtros](./screenshots/filters.png)
+![Filtros](./screenshots/PrincipalCardFilterFlipped.jpg)
 *Filtros dinámicos por texto, ciudad y tipo de propiedad*
 
 ### Tarjeta con Modal
-![Modal](./screenshots/modal.png)
+![Modal](./screenshots/ShowCardModal.jpg)
 *Detalle completo de la propiedad en modal*
 
 ### Vista Responsive
-![Mobile](./screenshots/mobile.png)
+![Mobile](./screenshots/Movil.jpg)
 *Diseño adaptativo para dispositivos móviles*
 
 ---
@@ -146,7 +157,8 @@ appmodulo2/
 ├── appmod2/                        # Aplicación React
 │   ├── src/
 │   │   ├── assets/                # Recursos estáticos
-│   │   │   └── img/               # Imágenes de propiedades
+│   │   │   ├── img/               # Imágenes de propiedades
+│   │   │   └── screenshots/       # Capturas de pantalla
 │   │   │   
 │   │   ├── components/            # Componentes reutilizables
 │   │   │   ├── button/            # ButtonCard component
@@ -158,6 +170,9 @@ appmodulo2/
 │   │   │   ├── filter/            # Filter component
 │   │   │   │   ├── Filter.jsx
 │   │   │   │   └── filter.css
+│   │   │   ├── Footer/            # Footer component
+│   │   │   │   ├── Footer.jsx
+│   │   │   │   └── footer.css
 │   │   │   ├── imagenlabel/       # ImagenLabel component
 │   │   │   │   ├── ImagenLabel.jsx
 │   │   │   │   └── imagenlabel.css
@@ -215,13 +230,21 @@ El proyecto incluye **13 propiedades** distribuidas en:
 
 ---
 
-## Próximas Mejoras
+## Próximas Mejoras posibles
 
+- [ ] Dashboard de administración para gestión de propiedades
+- [ ] Conexión con base de datos (PostgreSQL/MySQL)
+- [ ] Backend con Node.js y Express
+- [ ] Sistema de autenticación y autorización
+- [ ] CRUD completo de propiedades desde el dashboard
 - [ ] Integración con API REST
-- [ ] Mapa interactivo de ubicaciones
+- [ ] Mapa interactivo de ubicaciones con Google Maps
 - [ ] Filtros avanzados (rango de precio, metros cuadrados, antigüedad)
 - [ ] Sistema de contacto con el vendedor
-- [ ] Tours virtuales 360°
+- [ ] Comparador de propiedades
+- [ ] Exportación de datos a PDF
+- [ ] Notificaciones por email
+- [ ] Panel de estadísticas y métricas
 
 
 ---
