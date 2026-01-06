@@ -133,19 +133,19 @@ npm run build
 ## Capturas de Pantalla
 
 ### Vista Principal
-![Vista Principal](./screenshots/PrincipalCard.jpg)
+![Vista Principal](./appmod2/src/assets/screenshots/PrincipalCard.jpg)
 *Página principal con tarjetas de propiedades y filtros*
 
 ### Sistema de Filtros
-![Filtros](./screenshots/PrincipalCardFilterFlipped.jpg)
+![Filtros](./appmod2/src/assets/screenshots/PrincipalCardFilterFlipped.jpg)
 *Filtros dinámicos por texto, ciudad y tipo de propiedad*
 
 ### Tarjeta con Modal
-![Modal](./screenshots/ShowCardModal.jpg)
+![Modal](./appmod2/src/assets/screenshots/ShowCardModal.jpg)
 *Detalle completo de la propiedad en modal*
 
 ### Vista Responsive
-![Mobile](./screenshots/Movil.jpg)
+![Mobile](./appmod2/src/assets/screenshots/Movil.jpg)
 *Diseño adaptativo para dispositivos móviles*
 
 ---
