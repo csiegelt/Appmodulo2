@@ -1,15 +1,10 @@
 {
+  "buildCommand": "cd appmod2 && npm run build",
+  "outputDirectory": "appmod2/dist",
   "rewrites": [
     { 
       "source": "/(.*)", 
       "destination": "/index.html" 
-    }
-  ],
-  "routes": [
-    {
-      "src": "/[^.]+",
-      "dest": "/",
-      "status": 200
     }
   ]
 }
