@@ -56,7 +56,7 @@
 }
 
 .tipo-terreno {
-  background: linear-gradient(135deg, #84cc16 0%, #65a30d 100%);
+  background: linear-gradient(135deg, #84cc16 0%, #84cc16 100%);
 }
 
 .tipo-local {
@@ -65,6 +65,71 @@
 
 .tipo-default {
   background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
+}
+
+/* Estilos para categorías de productos */
+.categoria-beauty {
+  background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+}
+
+.categoria-fragrances {
+  background: linear-gradient(135deg, #2b6394 0%, #00f2fe 100%);
+}
+
+.categoria-furniture {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+}
+
+.categoria-groceries {
+  background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+}
+
+.categoria-home {
+  background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+}
+
+.categoria-kitchen {
+  background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+}
+
+.categoria-laptops,
+.categoria-smartphones,
+.categoria-tablets {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.categoria-mens {
+  background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+}
+
+.categoria-womens {
+  background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+}
+
+.categoria-mobile,
+.categoria-sports {
+  background: linear-gradient(135deg, #fddb92 0%, #d1fdff 100%);
+}
+
+.categoria-motorcycle,
+.categoria-vehicle {
+  background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+}
+
+.categoria-skincare {
+  background: linear-gradient(135deg, #fee140 0%, #fa709a 100%);
+}
+
+.categoria-sunglasses {
+  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+}
+
+.categoria-tops {
+  background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+}
+
+.categoria-default {
+  background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
 }
 
 /* Responsive */

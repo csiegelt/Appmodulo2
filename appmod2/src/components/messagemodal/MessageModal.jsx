@@ -5,12 +5,15 @@ import './messagemodal.css';
 export function MessageModal({ 
   message, 
   onClose,
-  title = "Detalles de la Propiedad",
+  title = "Detalles del ítem",
   images = [],
-  propertyData
+  itemData,
+  item = 'properties'
 }) {
   
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+   const isProduct = item === 'products';
 
   useEffect(() => {
     const handleEscape = (e) => {
@@ -94,23 +97,45 @@ export function MessageModal({
          
           <h2 className="modal-title">{title}</h2>
           
-          {propertyData && (
+          {itemData && (
             <div className="modal-info-simple">
-              <p><strong>Valor:</strong> $ {propertyData.valor.toLocaleString('es-CL')}</p>
-              <p><strong>Ciudad:</strong> {propertyData.ciudad}</p>
-              <p><strong>Tipo operación:</strong> {propertyData.tipo_operacion}</p>
-              <p><strong>Dirección:</strong> {propertyData.direccion}</p>
-              <p><strong>Tipo:</strong> {propertyData.tipo}</p>
-              <p><strong>Habitaciones:</strong> {propertyData.habitaciones}</p>
-              <p><strong>Hab. Principal:</strong> {propertyData.habitacion_principal}</p>
-              <p><strong>Hab. Secundaria:</strong> {propertyData.habitacion_secundaria}</p>
-              <p><strong>Dormitorios:</strong> {propertyData.dormitorios}</p>
-              <p><strong>Estacionamientos:</strong> {propertyData.estacionamientos}</p>
+              {isProduct ? (
+                // Contenido Productos
+                <>
+                  <p><strong>Producto:</strong> {itemData.titulo}</p>
+                  <p><strong>Precio:</strong> $ {itemData.valor?.toLocaleString('es-CL')}</p>
+                  <p><strong>Categoría:</strong> {itemData.categoria}</p>
+                  <p><strong>Marca:</strong> {itemData.marca}</p>
+                  <p><strong>Stock disponible:</strong> {itemData.stock} unidades</p>
+                  <p><strong>Dimensiones:</strong> {itemData.dimensiones ? `${itemData.dimensiones.width} x ${itemData.dimensiones.height} x ${itemData.dimensiones.depth} cm` : 'N/A'}</p>
+                  <p><strong>Volumen:</strong> {itemData.volumen + ' (' + itemData.volumenCm3 + ')'}</p>
+                  <p><strong>SKU:</strong> {'# ' + itemData.sku}</p>
+                  <p><strong>Peso:</strong> {itemData.peso}</p>
+                  <p><strong>Garantía:</strong> {itemData.garantia}</p>
+                  <p><strong>Descuento:</strong> {itemData.discountPercentage}%</p>
+                  <p><strong>Rating:</strong> {itemData.rating} / 5</p>
+
+                </>
+              ) : (
+                // Contenido Propiedades
+                <>
+                  <p><strong>Valor:</strong> $ {itemData.valor?.toLocaleString('es-CL')}</p>
+                  <p><strong>Ciudad:</strong> {itemData.ciudad}</p>
+                  <p><strong>Tipo operación:</strong> {itemData.tipo_operacion}</p>
+                  <p><strong>Dirección:</strong> {itemData.direccion}</p>
+                  <p><strong>Tipo:</strong> {itemData.tipo}</p>
+                  <p><strong>Habitaciones:</strong> {itemData.habitaciones}</p>
+                  <p><strong>Hab. Principal:</strong> {itemData.habitacion_principal}</p>
+                  <p><strong>Hab. Secundaria:</strong> {itemData.habitacion_secundaria}</p>
+                  <p><strong>Dormitorios:</strong> {itemData.dormitorios}</p>
+                  <p><strong>Estacionamientos:</strong> {itemData.estacionamientos}</p>
+                </>
+              )}
             </div>
           )}
 
           {/* Mensaje tradicional (fallback) */}
-          {!propertyData && message && (
+          {!itemData && message && (
             <div>
               {message.split('\n').map((line, index) => (
                 line.trim() && <p key={index}>{line}</p>

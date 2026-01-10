@@ -62,6 +62,7 @@ function Properties() {
           texto="Buscar por descripción, ciudad o dirección..." 
           propiedades={propiedadesConImagenes}
           onFiltrar={aplicarFiltros}
+          tipo="propiedades"
         />
       </div>
       
@@ -85,6 +86,7 @@ function Properties() {
               habitaciones={totalHabitaciones}
               estacionamientos={prop.features.estacionamientos}
               dormitorios={prop.features.dormitorios}
+              item='properties'
             />
           );
         })}

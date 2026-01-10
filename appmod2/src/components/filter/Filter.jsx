@@ -2,11 +2,18 @@ import React, { useState } from 'react';
 import './filter.css'; 
 
 export function Filter({
-     texto,
-     propiedades = [], // Recibe las propiedades para extraer valores únicos
-     onFiltrar
+
+    texto,
+    propiedades = [], // Recibe las propiedades para extraer valores únicos
+    productos = [],
+    onFiltrar,
+    tipo = 'propiedades' // 'propiedades' o 'productos'
+   
      
 }) {
+  
+  const items = tipo === 'productos' ? productos : propiedades;
+
   const [filtros, setFiltros] = useState({
     busqueda: '',
     ciudad: 'todas',
@@ -16,10 +23,35 @@ export function Filter({
 
 
   // Extrae unica ciudad
-  const ciudadesDisponibles = [...new Set(propiedades.map(prop => prop.ciudad))].sort();
+  //const ciudadesDisponibles = [...new Set(items.map(item => item.ciudad))].sort();
   
   // Extrae unico tipo
-  const tiposDisponibles = [...new Set(propiedades.map(prop => prop.tipo))].sort();
+  //const tiposDisponibles = [...new Set(items.map(item => item.tipo))].sort();
+
+  const primerSelect = tipo === 'productos' 
+    ? [...new Set(items.map(item => item.categoria))].sort()
+    : [...new Set(items.map(item => item.ciudad))].sort();
+
+  const segundoSelect = tipo === 'productos'
+  ? [...new Set(items.map(item => item.marca))].sort()
+  : [...new Set(items.map(item => item.tipo))].sort();
+
+  // Select dinámicos
+  const labels = tipo === 'productos' 
+    ? {
+        primera: 'Todas las categorías',
+        segunda: 'Todas las marcas',
+        campo1: 'categoria',
+        campo2: 'marca'
+      }
+    : {
+        primera: 'Todas las ciudades',
+        segunda: 'Todos los tipos',
+        campo1: 'ciudad',
+        campo2: 'tipo'
+      };
+
+
 
   const handleChange = (campo, valor) => {
     const nuevosFiltros = { ...filtros, [campo]: valor };
@@ -52,40 +84,40 @@ export function Filter({
         <div className="filter-input-group">
           <input
             type="text"
-            placeholder={texto || "Buscar propiedades..."}
+            placeholder={texto || "Buscar ..."}
             value={filtros.busqueda}
             onChange={(e) => handleChange('busqueda', e.target.value)}
             className="filter-input"
           />
         </div>
 
-        {/* filtro select ciudad */}
+        {/* filtro select ciudad o categoria */}
         <div className="filter-select-group">
           <select
             value={filtros.ciudad}
             onChange={(e) => handleChange('ciudad', e.target.value)}
             className="filter-select"
           >
-            <option value="todas">Todas las ciudades</option>
-            {ciudadesDisponibles.map((ciudad) => (
-              <option key={ciudad} value={ciudad}>
-                {ciudad}
+            <option value="todas">{labels.primera}</option>
+            {primerSelect.map((item) => (
+              <option key={item} value={item}>
+                {item}
               </option>
             ))}
           </select>
         </div>
 
-        {/* filtro select tipo */}
+        {/* filtro select tipo o marca */}
         <div className="filter-select-group">
           <select
             value={filtros.tipo}
             onChange={(e) => handleChange('tipo', e.target.value)}
             className="filter-select"
           >
-            <option value="todos">Todos los tipos</option>
-            {tiposDisponibles.map((tipo) => (
-              <option key={tipo} value={tipo}>
-                {tipo}
+            <option value="todos">{labels.segunda}</option>
+            {segundoSelect.map((item) => (
+              <option key={item} value={item}>
+                {item}
               </option>
             ))}
           </select>

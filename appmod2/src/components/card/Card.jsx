@@ -19,27 +19,63 @@ export default function Card({
   habitacion_secundaria,
   estacionamientos,
   tipo,
-  dormitorios  
+  dormitorios,
+  item='properties' ,
+  titulo ,
+  stock,
+  categoria ,  
+  marca,
+  volumen,
+  volumenCm3,
+  dimensiones,
+  sku,
+  peso,
+  garantia,
+  discountPercentage,
+  rating
+
 
 }) {
 
   const [showModal, setShowModal] = useState(false);
   const [flipped, setFlipped] = useState(false);
 
-  const propertyData = {
-    descripcion,
-    valor,
-    ciudad,
-    direccion,
-    tipo,
-    tipo_operacion,
-    imagen_src: src,    
-    habitaciones: habitaciones ?? '-',
-    habitacion_principal: habitacion_principal ?? '-',
-    habitacion_secundaria: habitacion_secundaria ?? '-',
-    dormitorios: dormitorios ?? '-',
-    estacionamientos: estacionamientos ?? '-'
-  };
+  const isProduct = item === 'products';
+  const precioDscto = isProduct ? valor - (valor * (discountPercentage / 100)) : null;
+
+  const itemData = isProduct ? {
+      titulo,
+      valor,
+      stock,
+      categoria,
+      marca,
+      garantia,
+      discountPercentage,
+      rating,
+      volumen,
+      volumenCm3,
+      dimensiones,
+      sku,
+      peso,
+      precioDscto,      
+      imagen_src: src } :
+      {
+      descripcion,
+      valor,
+      ciudad,
+      direccion,
+      tipo,
+      tipo_operacion,
+      imagen_src: src,    
+      habitaciones: habitaciones ?? '-',
+      habitacion_principal: habitacion_principal ?? '-',
+      habitacion_secundaria: habitacion_secundaria ?? '-',
+      dormitorios: dormitorios ?? '-',
+      estacionamientos: estacionamientos ?? '-'
+    };
+    
+  
+  
 
   //const modalImages = images.length > 0 ? images : [src];
 
@@ -64,17 +100,28 @@ export default function Card({
               <div className="imagen_contenedor">
                 <img
                   src={src || '/img/placeholder.png'}
-                  alt={descripcion || 'imagen'}
+                  alt={isProduct ? titulo : descripcion}
                   className="card-image"
                 />
-                <ImagenLabel texto={descripcion} tipo={tipo} />
+                <ImagenLabel texto={isProduct ? titulo : descripcion} tipo={isProduct ? categoria : tipo} item={item} />
               </div>
               <div className="features-list-front"> 
-                <h4>{descripcion}</h4>
-                <p><strong>Valor:</strong> $ {valor.toLocaleString('es-CL')}</p>
-                <p><strong>Ciudad:</strong> {ciudad}</p>
-                <p><strong>Tipo operación:</strong> {tipo_operacion}</p>
-                                
+                {isProduct ? (
+                  <>
+                    <h4>{titulo}</h4>                                      
+                    <p><strong>Precio:</strong> $ {valor?.toLocaleString('es-CL')} {precioDscto ? `(Dscto: $${precioDscto.toLocaleString('es-CL')})` : ''}</p>
+                    <p><strong>Marca:</strong> {marca}</p>
+                    <p><strong>Categoría:</strong> {categoria}</p>
+                    <p><strong>Sku:</strong> {'# ' + sku}</p>
+                  </>
+                ) : (
+                  <>
+                    <h4>{descripcion}</h4>
+                    <p><strong>Valor:</strong> $ {valor?.toLocaleString('es-CL')}</p>
+                    <p><strong>Ciudad:</strong> {ciudad}</p>
+                    <p><strong>Tipo operación:</strong> {tipo_operacion}</p>
+                  </>
+                )}
               </div>
 
               <ButtonCard
@@ -90,9 +137,22 @@ export default function Card({
             {/* CARA TRASERA */}
             <div className="card card-back">
               
-              <ImagenLabel texto="Información Detallada" />
+             <ImagenLabel texto={isProduct ? "Detalles del Producto" : "Información Detallada"} />
                                     
               <div className="features-list">
+                {isProduct ? (
+                  <>
+                    <p><strong>Título:</strong> {titulo}</p>
+                    <p><strong>Precio:</strong> $ {valor.toLocaleString('es-CL')}</p>
+                    <p><strong>Categoría:</strong> {categoria}</p>
+                    <p><strong>Marca:</strong> {marca}</p>
+                    <p><strong>Stock:</strong> {stock}</p>                    
+                    <p><strong>Garantía:</strong> {garantia}</p>
+                    <p><strong>Descuento:</strong> {discountPercentage}%</p>
+                    <p><strong>Rating:</strong> {rating} / 5</p>
+                  </>
+                ) : (
+                  <>  
                 <p><strong>Descripción:</strong> {descripcion}</p>
                 <p><strong>Dirección:</strong> {direccion}</p>
                 <p><strong>Valor:</strong> ${valor.toLocaleString('es-CL')}</p>
@@ -103,6 +163,9 @@ export default function Card({
                 </ul>
                 <p><strong>Estacionamientos:</strong> {estacionamientos ?? '-'}</p>
                 <p><strong>Dormitorios:</strong> {dormitorios ?? '-'}</p>
+              
+              </>
+                )}
               </div>
 
               <ButtonCard
@@ -118,10 +181,11 @@ export default function Card({
 
         {showModal && (
           <MessageModal
-          title={descripcion}
-          propertyData={propertyData}
+          title={isProduct ? titulo : descripcion}
+          itemData={itemData}
           images={images.length > 0 ? images : [src]} 
           onClose={() => setShowModal(false)}
+          item={item}
         />
       )}
 
