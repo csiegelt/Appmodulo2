@@ -18,9 +18,7 @@ El sistema permite visualizar, filtrar y navegar entre propiedades inmobiliarias
 - Vista frontal: imagen, descripción, precio y características básicas
 - Vista trasera: información detallada según tipo (propiedad/producto)
 - Integración con modal para galería de imágenes
-- Componentes separados para detalles:
-  - `ProductDetailsCard.jsx` - Detalles de productos
-  - `PropertyDetailsCard.jsx` - Detalles de propiedades
+
 - **Cálculos automáticos**:
   - Precio con descuento aplicado (% de descuento)
   - Volumen en cm³ calculado desde dimensiones
