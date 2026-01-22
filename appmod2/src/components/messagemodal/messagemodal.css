@@ -20,6 +20,34 @@
   to { opacity: 10; }
 }
 
+.modal-close-x {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  font-size: 1.8rem;
+  color: #334155;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  line-height: 1;
+  padding: 0;
+}
+
+.modal-close-x:hover {
+  background: white;
+  transform: scale(1.1);
+  color: #2b67d8;
+}
+
 
 .modal-content {
   background: rgba(252, 249, 249, 0.98);
@@ -159,18 +187,27 @@
   padding: 1.5rem;
   border-top: 1px solid #e0e0e0;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  align-items: center;
   gap: 1rem;
 }
 
 
 
-.modal-footer .button-card {
-  min-width: 150px;
-  padding: 12px 32px !important;
-  background-color: #357abd !important;
-  font-size: 16px !important;
-  font-weight: 500 !important;
+.button {
+  margin-top: auto;
+  padding: 0.6rem 1rem;
+  background: #478ad3;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  
+}
+
+.card button:hover {
+  background: #0056b3;
 }
 
 

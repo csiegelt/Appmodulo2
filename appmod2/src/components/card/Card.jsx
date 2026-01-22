@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ImagenLabel } from '../imagenlabel/ImagenLabel.jsx';
 import { MessageModal } from '../messagemodal/MessageModal.jsx';
 import { ButtonCard } from '../button/ButtonCard.jsx';
+import { BUTTON_LABELS, CARD_TITLES } from './Card.constants.js';
 import './card.css';
 
 
@@ -75,16 +76,7 @@ export default function Card({
       dormitorios: dormitorios ?? '-',
       estacionamientos: estacionamientos ?? '-'
     };
-    
   
-  
-
-  //const modalImages = images.length > 0 ? images : [src];
-
-  /*-------------DEBUG CONSOLA----------- */
-  // console.log('Card - images recibidas:', images);
-  // console.log('Card - modalImages:', modalImages);
-
   return (
 
     <div
@@ -97,7 +89,7 @@ export default function Card({
     >
 
         <div className={`card-inner ${flipped ? 'is-flipped' : ''}`}>
-            {/* CARA FRONTAL */}
+           
             <div className="card card-front">
               <div className="imagen_contenedor">
                 <img
@@ -127,7 +119,7 @@ export default function Card({
               </div>
 
               <ButtonCard
-                text="Ver más"
+                text={BUTTON_LABELS.viewMore}
                 variant="primario"
                 onClick={(e) => {
                   e.stopPropagation();
@@ -135,11 +127,10 @@ export default function Card({
                 }}
               />
             </div>
-
-            {/* CARA TRASERA */}
+            
             <div className="card card-back">
               
-             <ImagenLabel texto={isProduct ? "Detalles del Producto" : "Información Detallada"} />
+             <ImagenLabel texto={isProduct ? CARD_TITLES.productDetails : CARD_TITLES.propertyDetails} />
                                     
               <div className="features-list">
                 {isProduct ? (
@@ -171,7 +162,7 @@ export default function Card({
               </div>
 
               <ButtonCard
-                text="Volver"
+                text={BUTTON_LABELS.back}
                 variant="secundario"
                 onClick={(e) => {
                   e.stopPropagation();

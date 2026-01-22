@@ -4,10 +4,10 @@ import './filter.css';
 export function Filter({
 
     texto,
-    propiedades = [], // Recibe las propiedades para extraer valores únicos
+    propiedades = [], 
     productos = [],
     onFiltrar,
-    tipo = 'propiedades' // 'propiedades' o 'productos'
+    tipo = 'propiedades' 
    
      
 }) {
@@ -22,12 +22,7 @@ export function Filter({
   });
 
 
-  // Extrae unica ciudad
-  //const ciudadesDisponibles = [...new Set(items.map(item => item.ciudad))].sort();
-  
-  // Extrae unico tipo
-  //const tiposDisponibles = [...new Set(items.map(item => item.tipo))].sort();
-
+ 
   const primerSelect = tipo === 'productos' 
     ? [...new Set(items.map(item => item.categoria))].sort()
     : [...new Set(items.map(item => item.ciudad))].sort();
@@ -36,7 +31,7 @@ export function Filter({
   ? [...new Set(items.map(item => item.marca))].sort()
   : [...new Set(items.map(item => item.tipo))].sort();
 
-  // Select dinámicos
+  
   const labels = tipo === 'productos' 
     ? {
         primera: 'Todas las categorías',
@@ -57,7 +52,7 @@ export function Filter({
     const nuevosFiltros = { ...filtros, [campo]: valor };
     setFiltros(nuevosFiltros);
     
-    // Enviar filtros al componente padre
+    
     if (onFiltrar) {
       onFiltrar(nuevosFiltros);
     }
@@ -80,7 +75,7 @@ export function Filter({
     <div className="filter-container">
       <form className="filter-form" onSubmit={(e) => e.preventDefault()}>
         
-        {/* filtro input */}
+        
         <div className="filter-input-group">
           <input
             type="text"
@@ -91,7 +86,7 @@ export function Filter({
           />
         </div>
 
-        {/* filtro select ciudad o categoria */}
+        
         <div className="filter-select-group">
           <select
             value={filtros.ciudad}
@@ -107,7 +102,7 @@ export function Filter({
           </select>
         </div>
 
-        {/* filtro select tipo o marca */}
+       
         <div className="filter-select-group">
           <select
             value={filtros.tipo}
@@ -123,7 +118,7 @@ export function Filter({
           </select>
         </div>
 
-        {/* Botón limpiar filtros */}
+        
         <button
           type="button"
           onClick={limpiarFiltros}

@@ -34,7 +34,7 @@ export function MessageModal({
   }, [onClose]);
 
   const handleBackdropClick = (e) => {
-    e.stopPropagation(); // Detiene la propagación del Modal
+    e.stopPropagation(); 
     if (e.target === e.currentTarget) {
       onClose();
     }
@@ -57,7 +57,14 @@ export function MessageModal({
     >
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         
-        {/* Slider */}
+        <button 
+          className="modal-close-x"
+          onClick={onClose}
+          aria-label="Cerrar modal"
+        >
+          ×
+        </button>
+
         {images && images.length > 0 && (
           <div className="modal-slider-container">
             <img 

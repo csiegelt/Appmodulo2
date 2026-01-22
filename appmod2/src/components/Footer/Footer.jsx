@@ -44,12 +44,13 @@ export function Footer() {
   return (
     <footer className="footer">
       <div className="footer-container">
-        {/* Sección 1: Sobre nosotros */}
+       
         <div className="footer-section">
-          <h3>Propiedades Chiloé</h3>
+          <h3>Marketplace Inmobiliario y Comercial de Chiloé</h3>
           <p>
-            Tu aliado en la búsqueda del hogar perfecto. Ofrecemos las mejores
-            propiedades con servicios profesionales y personalizados.
+            Plataforma digital para la publicación y gestión de propiedades y productos,
+            conectando compradores y vendedores con información clara, servicios
+            confiables y una experiencia simple y segura.
           </p>
           <div className="footer-social">
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
@@ -63,11 +64,9 @@ export function Footer() {
             </a>
            </div>
            <p>&copy; {currentYear} Propiedades Chiloé</p>
-        </div>
+        </div>      
 
         
-
-        {/* Sección 4: Contacto */}
         <div className="footer-section">
           <h3>Contacto</h3>
           <ul className="footer-contact">

@@ -4,11 +4,11 @@ import './imagenlabel.css';
 export function ImagenLabel({ texto, tipo, item='properties' }) {
 
   const isProduct = item === 'products';
-  // Función para obtener la clase CSS según el tipo
+ 
 
   const getTipoClass = (tipo) => {
     if (isProduct) {
-      // Clases para categorías de productos
+      
       const categoriaMap = {
         'beauty': 'categoria-beauty',
         'fragrances': 'categoria-fragrances',
@@ -51,12 +51,12 @@ export function ImagenLabel({ texto, tipo, item='properties' }) {
   
   return (
     <div className="imagen-labels-container">
-      {/* Label de estado */}
+      
       <div className="imagen-label">
         <span>{texto}</span>
       </div>
       
-      {/* Label de tipo (condicional) */}
+     
       {tipo && (
         <div className={`imagen-label-tipo ${getTipoClass(tipo)}`}>
           <span>{isProduct ? tipo : tipo}</span>
