@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const HomeIcon = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -88,10 +88,10 @@ export function NavMenu() {
       
       <nav className="nav-menu" ref={navRef}>
         <div className="nav-container">
-        <Link to="/" className="nav-logo">
+        <NavLink to="/" className="nav-logo">
           <HomeIcon />
-          Propiedades Chiloé
-        </Link>
+          e-Commerce Chiloé
+        </NavLink>
 
         <button
           className="nav-toggle"
@@ -103,34 +103,34 @@ export function NavMenu() {
 
         <ul className={`nav-links ${isOpen ? "active" : ""}`}>
           <li>
-            <Link to="/" onClick={closeMenu}>
+            <NavLink to="/" className={({ isActive }) => isActive ? 'active' : ''}  onClick={closeMenu}>
               <HomeIcon />
               Inicio
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="/properties" onClick={closeMenu}>
+                  <NavLink to="/properties" className={({ isActive }) => isActive ? 'active' : ''} onClick={closeMenu}>
               <BuildingIcon />
               Propiedades
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="/products" onClick={closeMenu}>
+            <NavLink to="/products" className={({ isActive }) => isActive ? 'active' : ''} onClick={closeMenu}>
               <ProductsIcon />
               Productos
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="/servicios" onClick={closeMenu}>
+            <NavLink to="/servicios" className={({ isActive }) => isActive ? 'active' : ''} onClick={closeMenu}>
               <ServicesIcon />
               Servicios
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="/contacto" onClick={closeMenu}>
+            <NavLink to="/contacto" className={({ isActive }) => isActive ? 'active' : ''} onClick={closeMenu}>
               <ContactIcon />
               Contacto
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </div>

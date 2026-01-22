@@ -25,6 +25,7 @@ export default function Card({
   stock,
   categoria ,  
   marca,
+  
   volumen,
   volumenCm3,
   dimensiones,
@@ -50,6 +51,7 @@ export default function Card({
       categoria,
       marca,
       garantia,
+      descripcion,
       discountPercentage,
       rating,
       volumen,

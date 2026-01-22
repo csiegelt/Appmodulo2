@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Card, Filter } from '../../components/index.ts'
+import { Card, Filter, CardSkeleton } from '../../components/index.ts'
 
 
 
@@ -7,15 +7,21 @@ function Products() {
   const [productos, setProductosState] = useState([]);
   const [filtros, setFiltros] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [loadingFiltros, setLoadingFiltros] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         setLoading(true);
-        const response = await fetch('https://dummyjson.com/products');
+        setError(null);
+        const [response] = await Promise.all([
+          fetch('https://dummyjson.com/products/?limit=200'),
+          new Promise(resolve => setTimeout(resolve, 2500)) // 3.5 segundos mínimo
+        ]);
+
         if (!response.ok) {
-          throw new Error('Error al obtener los productos');
+          throw new Error(`Error HTTP: ${response.status} - No se pudieron cargar los productos`);
         }
 
         const data = await response.json();
@@ -43,8 +49,8 @@ function Products() {
             marca: prod.brand || 'Sin marca',
             stock: prod.stock || 0,
             imagen_src: prod.thumbnail || '',
-            volumen: volumen,
-            volumenCm3: volumenCm3,
+            volumen: volumen || 'N/A',
+            volumenCm3: volumenCm3 || 'N/A',
             images: prod.images || [prod.thumbnail],
             descuento: prod.discountPercentage || 0,
             dimensiones: prod.dimensions || {},
@@ -63,7 +69,7 @@ function Products() {
 
       } catch (error) {
         console.error('Error capturado:', error);
-        setError(error.message);
+        setError(error.message || 'Error desconocido al cargar los productos');
         setLoading(false);
       }
     };
@@ -72,7 +78,11 @@ function Products() {
 
   }, []); // Array de dependencias vacío
 
-  const aplicarFiltros = (filtrosParams) => {
+  const aplicarFiltros = async (filtrosParams) => {
+
+    setLoadingFiltros(true);    
+    await new Promise(resolve => setTimeout(resolve, 500)); // Simula retardo de 0.5 segundos
+    
     let resultado = [...productos];
 
     if (filtrosParams.busqueda && filtrosParams.busqueda.trim() !== '') {
@@ -94,7 +104,35 @@ function Products() {
     }
 
     setFiltros(resultado);
+    setLoadingFiltros(false);
+
   };
+
+  const handleRetry = () => {
+    setError(null);
+    setLoading(true);
+    window.location.reload();
+  };
+
+  // Renderizar error
+  if (error) {
+    return (
+      <div className="error-container">
+        <div className="error-content">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="12" cy="12" r="10" strokeWidth="2"/>
+            <line x1="12" y1="8" x2="12" y2="12" strokeWidth="2"/>
+            <line x1="12" y1="16" x2="12.01" y2="16" strokeWidth="2"/>
+          </svg>
+          <h2>¡Oops! Algo salió mal</h2>
+          <p>{error}</p>
+          <button onClick={handleRetry} className="retry-button">
+            Reintentar
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -109,9 +147,10 @@ function Products() {
       </div>
       
       <div className="grid">          
-        {filtros.map((prod) => {
-          
-          return (
+        {(loading || loadingFiltros)
+          ? Array.from({ length: 12 }).map((_, i) => <CardSkeleton key={i} />)
+          : filtros.length > 0
+          ? filtros.map((prod) => (
             <Card
               key={prod.id}
               src={prod.imagen_src}
@@ -120,9 +159,11 @@ function Products() {
               valor={prod.precio}
               categoria={prod.categoria}
               images={prod.images}
-              stock={`Stock: ${prod.stock}`}              
+              descripcion={prod.descripcion}
+              stock={prod.stock}              
               item='products'
               volumen={prod.volumen}
+              volumenCm3={prod.volumenCm3}
               sku={prod.sku}
               peso={prod.peso}
               garantia={prod.garantia}
@@ -131,8 +172,13 @@ function Products() {
               rating={prod.rating}
 
             />
-          );
-        })}
+          ))
+          : (
+                <div className="no-results">
+                  <p>No se encontraron productos con los filtros aplicados</p>
+                </div>
+              )
+        }
       </div>
     </>
   );

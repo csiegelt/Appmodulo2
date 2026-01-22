@@ -90,6 +90,15 @@
   transform: translateY(0px);
 }
 
+.nav-links a.active {
+  background: rgba(255, 255, 255, 0.2);
+  font-weight: 700;
+}
+
+.nav-links a.active::after {
+  width: 80%;
+}
+
 
 .nav-toggle {
   display: none;

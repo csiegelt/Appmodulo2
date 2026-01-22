@@ -154,12 +154,27 @@
 }
 
 /* Footer */
+
 .modal-footer {
-  padding: 1.25rem 1.5rem;
-  border-top: 1px solid rgba(226, 232, 240, 0.6);
+  padding: 1.5rem;
+  border-top: 1px solid #e0e0e0;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
+  gap: 1rem;
 }
+
+
+
+.modal-footer .button-card {
+  min-width: 150px;
+  padding: 12px 32px !important;
+  background-color: #357abd !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+}
+
+
+
 
 .modal-btn-action {
   width: 100%;
