@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Card, Filter, CardSkeleton } from '../../components/index.ts'
+import { Card, Filter, CardSkeleton, ButtonCard } from '../../components/index.ts'
 
 
 
@@ -17,7 +17,7 @@ function Products() {
         setError(null);
         const [response] = await Promise.all([
           fetch('https://dummyjson.com/products/?limit=200'),
-          new Promise(resolve => setTimeout(resolve, 2500)) // 3.5 segundos mínimo
+          new Promise(resolve => setTimeout(resolve, 2500)) 
         ]);
 
         if (!response.ok) {
@@ -25,12 +25,9 @@ function Products() {
         }
 
         const data = await response.json();
-
-        console.log('Data completa:', data);
        
         const productosConImagenes = data.products.map(prod => {
-          
-           // Calcular volumen en cm³ y convertir a m³
+
           let volumen = 'N/A';
           let volumenCm3 = 'N/A';
           
@@ -61,14 +58,13 @@ function Products() {
           }
         });
       
-        console.log('Productos procesados:', productosConImagenes);
-
+        
         setProductosState(productosConImagenes);
         setFiltros(productosConImagenes);
         setLoading(false);
 
       } catch (error) {
-        console.error('Error capturado:', error);
+        
         setError(error.message || 'Error desconocido al cargar los productos');
         setLoading(false);
       }
@@ -76,12 +72,12 @@ function Products() {
 
   fetchProducts();
 
-  }, []); // Array de dependencias vacío
+  }, []); 
 
   const aplicarFiltros = async (filtrosParams) => {
 
     setLoadingFiltros(true);    
-    await new Promise(resolve => setTimeout(resolve, 500)); // Simula retardo de 0.5 segundos
+    await new Promise(resolve => setTimeout(resolve, 500)); 
     
     let resultado = [...productos];
 
@@ -114,7 +110,6 @@ function Products() {
     window.location.reload();
   };
 
-  // Renderizar error
   if (error) {
     return (
       <div className="error-container">
@@ -126,9 +121,11 @@ function Products() {
           </svg>
           <h2>¡Oops! Algo salió mal</h2>
           <p>{error}</p>
-          <button onClick={handleRetry} className="retry-button">
-            Reintentar
-          </button>
+          <ButtonCard
+            text="Reintentar"
+            onClick={handleRetry}
+            variant="primario"
+          />
         </div>
       </div>
     );
